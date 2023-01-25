@@ -16,7 +16,10 @@ const menu = [
   { name: 'Settings', href: '#' },
   { name: 'Sign Out', href: '#' },
   { name: 'Register', href: '/signUp' },
+  { name: 'Login', href: '/login' },
 ]
+  
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
