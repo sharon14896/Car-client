@@ -10,10 +10,12 @@ const navigation = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
+
 const menu = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
-  { name: 'Sign Out', href: '#' }
+  { name: 'Sign Out', href: '#' },
+  { name: 'Register', href: '/signUp' },
 ]
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -119,9 +121,9 @@ const Header = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
-              {navigation.map((item) => (
+              {navigation.map((item,i) => (
 
-                <Link aria-current={item.current ? 'page' : undefined} className={classNames(
+                <Link key={i} aria-current={item.current ? 'page' : undefined} className={classNames(
                   item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                   'block px-3 py-2 rounded-md text-base font-medium'
                 )} to={item.href}>{item.name}</Link>
