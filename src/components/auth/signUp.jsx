@@ -12,7 +12,7 @@ const SignUp = () => {
     const signUp = async(_bodyData) =>{
         try{
             setErrMsg(null)
-
+            
             const {data} = await apiPost(SIGN_UP_ROUTE,_bodyData);
             nav('/login')
             console.log(data)
