@@ -62,9 +62,9 @@ const Login = () => {
                         <label  className="text-xs font-semibold px-1">Email:</label>
                         <div className="flex">
                             <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                            <input {...register('email')} type="email" className="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="email..."/>
+                            <input {...register('email',{required:{value:true,message:'Email is required...'}})} type="email" className="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="email..."/>
                         </div>
-
+                        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
                     </div>
                 </div>
                 
@@ -73,10 +73,10 @@ const Login = () => {
                         <label  className="text-xs font-semibold px-1">password:</label>
                         <div className="flex">
                             <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                            <input {...register('password')} type="password" className="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="password..."/>
+                            <input {...register('password',{required:{value:true,message:'Password is required...'},minLength:{value:6,message:'Password at least 6 characters'},maxLength:{value:25,message:'Password less than 25 characters '}})} type="password" className="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="password..."/>
                         </div>
                         {errMsg && <p className="text-red-500 ">{errMsg}</p>}
-
+                        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
                     </div>
 
                 </div>
